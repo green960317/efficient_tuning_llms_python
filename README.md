@@ -16,11 +16,9 @@
 
 </div>
 
-# Efficient Finetuning of Quantized LLMs  --- 低资源的大语言模型量化训练/部署方案
+# Efficient Finetuning of LLMs
 
 <div align="center">
-
-[中文](README_zh.md) | English
 
 </div>
 
@@ -152,8 +150,8 @@ pip install -q -U git+https://github.com/huggingface/accelerate.git
 Clone this repository and navigate to the Efficient-Tuning-LLMs folder
 
 ```bash
-git clone https://github.com/jianzhnie/Efficient-Tuning-LLMs.git
-cd Efficient-Tuning-LLMs
+git clone https://github.com/green960317/efficient_tuning_llms_python.git
+cd efficient_tuning_llms_python
 ```
 
 ## Getting Started
@@ -290,14 +288,12 @@ max_memory = {i: '46000MB' for i in range(torch.cuda.device_count())}
 
 ## Inference
 
-### 终端交互式对话
-
-运行下面的脚本，程序会在命令行中和你的ChatBot进行交互式的对话，在命令行中输入指示并回车即可生成回复，输入 `clear` 可以清空对话历史，输入 `stop` 终止程序。
+Run the following script, and the program will have an interactive conversation with your ChatBot in the command line. Enter instructions in the command line and press Enter to generate replies. Enter `clear` to clear the conversation history, and enter `stop` to terminate the program.
 
 ```bash
 python cli_demo.py \
     --model_name_or_path ~/checkpoints/baichuan7b \ # base model
-    --checkpoint_dir ./work_dir/checkpoint-700  \ # 训练的模型权重
+    --checkpoint_dir ./work_dir/checkpoint-700  \ # Trained model weights
     --trust_remote_code  \
     --double_quant \
     --quant_type nf4 \
@@ -305,7 +301,7 @@ python cli_demo.py \
     --bits 4
 ```
 
-### 使用 Gradio 进行网页端交互
+### Using Gradio for web-based interaction
 
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `path/to/your/model_dir`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
 
@@ -335,7 +331,7 @@ Here a list of known issues and bugs. If your issue is not reported here, please
 
 ## License
 
-`Efficient Finetuning of Quantized LLMs` is released under the Apache 2.0 license.
+`Efficient Finetuning of LLMs` is released under the Apache 2.0 license.
 
 ## Acknowledgements
 
@@ -357,11 +353,11 @@ Please cite the repo if you use the data or code in this repo.
 
 ```bibtex
 @misc{Chinese-Guanaco,
-  author = {jianzhnie},
+  author = {green},
   title = {Chinese-Guanaco: Efficient Finetuning of Quantized LLMs for Chinese},
   year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/jianzhnie/Efficient-Tuning-LLMs}},
+  howpublished = {\url{https://github.com/green960317/efficient_tuning_llms_python}},
 }
 ```
